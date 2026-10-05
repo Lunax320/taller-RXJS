@@ -1,0 +1,66 @@
+@if (user) {
+  <div class="d-flex align-items-center justify-content-center gap-5">
+    <!-- Flecha Derecha -->
+    <img src="/images/FlechaDerecha.png" alt="" class="flecha-deco" aria-hidden="true" />
+
+    <!-- Card -->
+    <div
+      class="card shadow-sm border-1 rounded-3 overflow-hidden"
+      style="max-width: 650px; flex: 1"
+    >
+      <div
+        class="card-header bg-dark text-white py-3 px-4 d-flex align-items-center justify-content-between"
+      >
+        <span class="badge bg-light text-dark fw-semibold">ID #{{ user.id }}</span>
+        <span class="small opacity-75">Imagina llamarte {{ user.username }} que feo caso</span>
+      </div>
+      <div class="card-body p-4">
+        <div class="d-flex flex-column flex-sm-row align-items-center gap-4">
+          <img
+            [src]="user.image"
+            [alt]="user.username"
+            class="rounded-circle border p-1 bg-light shadow-sm"
+            style="width: 120px; height: 120px; object-fit: cover"
+          />
+          <div class="text-center text-sm-start flex-grow-1">
+            <h4 class="fw-bold mb-1 text-dark">{{ user.firstName }} {{ user.lastName }}</h4>
+            <p class="text-muted mb-2">@{{ user.username }}</p>
+            @if (user.company?.title) {
+              <span
+                class="badge bg-secondary-subtle text-secondary border px-3 py-1 rounded-pill mb-2"
+              >
+                {{ user.company?.title }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <hr class="my-3 opacity-25" />
+
+        <div class="row g-3 text-secondary small">
+          <div class="col-12 col-sm-6">
+            <span class="fw-semibold text-dark d-block">Correo electrónico:</span>
+            <span>{{ user.email }}</span>
+          </div>
+          <div class="col-12 col-sm-6">
+            <span class="fw-semibold text-dark d-block">Teléfono:</span>
+            <span>{{ user.phone }}</span>
+          </div>
+          <div class="col-12 col-sm-6">
+            <span class="fw-semibold text-dark d-block">Edad / Género:</span>
+            <span class="text-capitalize">{{ user.age }} años, {{ user.gender }}</span>
+          </div>
+          @if (user.address?.city) {
+            <div class="col-12 col-sm-6">
+              <span class="fw-semibold text-dark d-block">Ciudad:</span>
+              <span>{{ user.address?.city }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Flecha Derecha -->
+    <img src="/images/FlechaIzquierda.png" alt="" class="flecha-deco" aria-hidden="true" />
+  </div>
+}

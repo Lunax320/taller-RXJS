@@ -1,0 +1,14 @@
+.buscador-header {
+  background-image: url('/images/FondoBuscador.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.pregunta,
+.noencontrado {
+  display: block;
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+}
