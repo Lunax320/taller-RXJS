@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.comment-card {
+  padding: 1rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.8rem;
+  background: #fff;
+}
+
+.comment-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+.comment-author,
+.comment-body {
+  overflow-wrap: anywhere;
+}
+
+.comment-body {
+  white-space: pre-line;
+  font-size: 0.95rem;
+}

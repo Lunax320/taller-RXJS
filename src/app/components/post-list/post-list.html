@@ -1,0 +1,15 @@
+<section class="post-list" aria-labelledby="posts-title">
+  <header class="posts-heading d-flex align-items-center justify-content-between gap-3 pb-3 mb-4">
+    <h2 id="posts-title" class="h3 fw-bold mb-0">Publicaciones</h2>
+  </header>
+
+  @if (posts.length === 0) {
+    <p class="text-secondary border rounded-3 p-4">Este usuario no tiene publicaciones.</p>
+  } @else {
+    <div class="post-grid">
+      @for (post of posts; track post.id) {
+        <app-post-card [post]="post" [comments]="getComments(post.id)"></app-post-card>
+      }
+    </div>
+  }
+</section>
