@@ -1,0 +1,62 @@
+@if (post; as currentPost) {
+  <article class="card shadow-sm border rounded-4 overflow-hidden">
+    <header class="bg-dark text-white p-4">
+      <span class="small d-block mb-2">Publicación #{{ currentPost.id }}</span>
+      <h3 class="post-title">{{ currentPost.title }}</h3>
+    </header>
+
+    <div class="p-4">
+      <p class="post-body mb-4">{{ currentPost.body }}</p>
+      <div class="reactions" aria-label="Reacciones de la publicación">
+        <span class="reaction">
+          <svg
+            class="reaction-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M7 10v10H3V10h4Z"></path>
+            <path d="m7 10 4-7a2 2 0 0 1 3 2l-1 5h6a2 2 0 0 1 2 2l-1 6a2 2 0 0 1-2 2H7"></path>
+          </svg>
+          {{ currentPost.reactions.likes }} Me gusta
+        </span>
+        <span class="reaction">
+          <svg
+            class="reaction-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path d="M17 14V4h4v10h-4Z"></path>
+            <path d="m17 14-4 7a2 2 0 0 1-3-2l1-5H5a2 2 0 0 1-2-2l1-6a2 2 0 0 1 2-2h11"></path>
+          </svg>
+          {{ currentPost.reactions.dislikes }} No me gusta
+        </span>
+      </div>
+    </div>
+
+    <section class="comments p-4" [attr.aria-labelledby]="'comments-title-' + currentPost.id">
+      <h4 class="h6 fw-bold mb-3" [id]="'comments-title-' + currentPost.id">Comentarios</h4>
+
+      @if (comments.length === 0) {
+        <p class="text-secondary small mb-0">Esta publicación no tiene comentarios.</p>
+      } @else {
+        <div class="comment-grid">
+          @for (comment of comments; track comment.id) {
+            <app-comment-card [comment]="comment"></app-comment-card>
+          }
+        </div>
+      }
+    </section>
+  </article>
+}

@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.post-list {
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+.posts-heading {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.post-grid {
+  display: grid;
+  gap: 1.5rem;
+}

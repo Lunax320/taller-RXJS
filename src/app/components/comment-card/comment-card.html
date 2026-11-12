@@ -1,0 +1,8 @@
+@if (comment; as currentComment) {
+  <article class="comment-card" [attr.aria-label]="'Comentario de ' + currentComment.user.fullName">
+    <header class="comment-header mb-2">
+      <strong class="comment-author">{{ currentComment.user.fullName }}</strong>
+    </header>
+    <p class="comment-body mb-0">{{ currentComment.body }}</p>
+  </article>
+}

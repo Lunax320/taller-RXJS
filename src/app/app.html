@@ -15,7 +15,7 @@
             <input
               type="text"
               class="form-control border-0 shadow-none ps-2"
-              placeholder="Buscar por username (ej: tonoto)"
+              placeholder="Buscar por username (ej: emilys)"
               formControlName="username"
             />
             <button class="btn btn-dark rounded-3 px-4" type="submit">Buscar</button>
@@ -61,7 +61,7 @@
     <app-user-profile [user]="user"></app-user-profile>
 
     <div class="mt-4">
-      <!-- Fase 3: Posts de usuario -->
+      <app-post-list [posts]="posts" [comments]="comments"></app-post-list>
     </div>
   }
 </main>
